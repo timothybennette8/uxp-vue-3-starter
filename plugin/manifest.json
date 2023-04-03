@@ -1,0 +1,67 @@
+{
+  "id": "vue-3-starter",
+  "name": "Vue 3 Starter",
+  "version": "1.0.0",
+  "main": "index.html",
+  "manifestVersion": 5,
+  "host": [
+    {
+      "app": "PS",
+      "minVersion": "24.0.0",
+      "data": {
+        "apiVersion": 2
+      }
+    }
+  ],
+  "requiredPermissions": {
+    "network": {
+      "domains": ["https://layerstack.co.uk"]
+    },
+    "localFileSystem": "fullAccess",
+    "launchProcess": {
+      "schemes": ["https"],
+      "extensions": [".html"]
+    }
+  },
+  "entrypoints": [
+    {
+      "type": "panel",
+      "id": "Vue 3 Starter",
+      "label": {
+        "default": "Vue 3 Starter"
+      },
+      "minimumSize": { "width": 230, "height": 200 },
+      "maximumSize": { "width": 2000, "height": 2000 },
+      "preferredDockedSize": { "width": 230, "height": 300 },
+      "preferredFloatingSize": { "width": 230, "height": 300 },
+      "icons": [
+        {
+          "width": 23,
+          "height": 23,
+          "path": "icons/dark-panel.png",
+          "scale": [1, 2],
+          "theme": ["darkest", "dark", "medium"],
+          "species": ["chrome"]
+        },
+        {
+          "width": 23,
+          "height": 23,
+          "path": "icons/light-panel.png",
+          "scale": [1, 2],
+          "theme": ["lightest", "light"],
+          "species": ["chrome"]
+        }
+      ]
+    }
+  ],
+  "icons": [
+    {
+      "width": 48,
+      "height": 48,
+      "path": "icons/plugin.png",
+      "scale": [1, 2],
+      "theme": ["darkest", "dark", "medium", "lightest", "light", "all"],
+      "species": ["pluginList"]
+    }
+  ]
+}
