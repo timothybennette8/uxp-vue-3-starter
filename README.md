@@ -1,7 +1,10 @@
-# Vue Starter Plugin
+# Vue 3 Starter Plugin
 
-This plugin is a Vue 3 version of https://github.com/AdobeDocs/uxp-photoshop-plugin-samples/tree/main/ui-vue-starter
-It uses the Composition API instead of the Options API
+Vue 3 Starter for Photoshop UXP
+✨ Composition API
+✨ <script setup>
+✨ Pinia store
+✨ Tailwind
 
 ## Install dependencies
 
