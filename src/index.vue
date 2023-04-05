@@ -1,18 +1,13 @@
 <script setup>
 import ShowObjects from "./components/ShowObjects/index.vue"
-import { storeToRefs } from 'pinia';
-const { openProgrammaticDialog } = require("./composables/useModal.js")
-
-const handleClick = async () => {
-  await openProgrammaticDialog("settings")
-}
-
 
 </script>
 
 <template>
   <div id="main" class="p-2">
-    <sp-heading size="s">Vue 3 Starter</sp-heading>
+    <sp-heading size="m">Vue 3 Starter</sp-heading>
+    <div class="text-6xl bg-green-500 h-[20px]">Green Text</div>
+    <div class="text-green-500 h-[20px]">Green Background</div>
 
     <ShowObjects />
   </div>

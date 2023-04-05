@@ -1,7 +1,7 @@
 {
   "id": "vue-3-starter",
   "name": "Vue 3 Starter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.html",
   "manifestVersion": 5,
   "host": [
