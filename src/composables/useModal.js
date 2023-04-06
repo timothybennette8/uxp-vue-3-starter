@@ -12,10 +12,9 @@ export const openProgrammaticDialog = async (title) => {
     title: title,
     resize: "none", // "both", "horizontal", "vertical",
     size: {
-      width: 1200,
+      width: 500,
       height: 400,
     },
   });
-  console.log(r);
   theDialog.remove();
 };

@@ -1,30 +1,39 @@
 <script setup>
+import { ref } from "vue";
+
 const props = defineProps({
-  selected: String,
-  modelValue: Array
+  items: Array,
+  modelValue: String,
+  label: String
 })
 
 const emit = defineEmits(["update:modelValue"])
 
-const handle = (e) => {
-  console.log(e.target)
-  console.log(e.target.value)
-  emit("update:modelValue", e.target)
+const selectedItem = ref()
+
+
+const handleClick = (e) => {
+  selectedItem.value = e.target.getAttribute("value")
 }
+
+const handleChange = (e) => {
+  setTimeout(() => {
+    emit("update:modelValue", selectedItem.value)
+  }, 100)
+}
+
+
 </script>
 
 <template>
   <div>
-    <sp-label class="text-white">DUCK</sp-label>
-    <sp-picker size="s" @change="handle($event)">
-      <sp-menu>
-        <sp-menu-item v-for="item of modelValue" :value="item">{{ item }}</sp-menu-item>
-
-        <!-- <sp-menu-item value="value1" selected=true>Value 1</sp-menu-item>
-                                              <sp-menu-item value="value2">Value 2</sp-menu-item>
-                                              <sp-menu-item value="value3">Value 3</sp-menu-item> -->
+    <sp-dropdown size="s">
+      <sp-menu slot="options" @change="handleChange">
+        <sp-menu-item disabled selected>{{ props.label }}</sp-menu-item>
+        <sp-menu-item v-for="item of props.items" :key="item" :value="item" :selected="props.modelValue === item ? true
+          : undefined" @click="handleClick">{{ item }}</sp-menu-item>
       </sp-menu>
-    </sp-picker>
+    </sp-dropdown>
   </div>
 </template>
 

@@ -4,27 +4,29 @@ import Select from "../../components/Select/index.vue"
 const { app } = require("photoshop")
 const doc = app.activeDocument;
 
-const enums = ["Layers", "Channels"]
+const documentObjects = ["Layers", "Channels"]
 
 const selected = ref()
 
 const handleListen = (e) => {
-  console.log("HII", e)
+  selected.value = e
 }
-
 </script>
 
 <template>
   <div class="flex flex-col gap-2">
-    <Select v-model="enums" :selected="selected" @update:model-value="handleListen" />
-    <div class="flex flex-row flex-wrap gap-4 justify-start">
-      <sp-button size="s" v-for="el of enums" class="m-2">{{ el }}</sp-button>
-    </div>
-    <ul>
-      <li v-for="layer of doc.layers">
-        <sp-label>{{ layer.name }}</sp-label>
+    <Select v-model="selected" :items="documentObjects" label="Choose objects" @update:model-value="handleListen" />
+    <sp-heading size="s">{{ selected }}</sp-heading>
+
+    <ul v-if="documentObjects.includes(selected)">
+      <li v-for="item of doc[selected.toLowerCase()]" :key="item">
+        <sp-label v-if="selected === 'Layers'">✨</sp-label>
+        <sp-label v-else>🏳️‍🌈</sp-label>
+        <sp-label>{{ item.name }}</sp-label>
       </li>
     </ul>
+
+
   </div>
 </template>
 
