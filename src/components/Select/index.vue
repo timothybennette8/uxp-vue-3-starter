@@ -11,18 +11,16 @@ const emit = defineEmits(["update:modelValue"])
 
 const selectedItem = ref()
 
-
 const handleClick = (e) => {
   selectedItem.value = e.target.getAttribute("value")
 }
 
 const handleChange = (e) => {
+  // Delay execution until after sp-menu-item click event has updated selectedItem
   setTimeout(() => {
     emit("update:modelValue", selectedItem.value)
   }, 100)
 }
-
-
 </script>
 
 <template>
